@@ -1,4 +1,4 @@
 # Table of contents
 
-* [README](README.md)
+* [概要](README.md)
 
