@@ -1,10 +1,10 @@
 # mysql 搭建实战
 
-### 编译安装
+## 编译安装
 
 **环境**： Centos7.x、mysql5.7
 
-#### 1、准备
+### 准备
 
 ```text
 # yum -y install gcc gcc-c++ ncurses ncurses-devel cmake bison bison-devel
@@ -28,7 +28,7 @@
 # mkdir -p /home/mysql/temp
 ```
 
-#### 2、进入目录，配置
+### 进入目录，配置
 
 ```text
 # cmake  
@@ -49,7 +49,7 @@
 -DWITH_EMBEDDED_SERVER=1 
 ```
 
-#### 3、编译&安装
+### 编译&安装
 
 ```text
 # make
@@ -57,7 +57,7 @@
 # make clean
 ```
 
-#### 4、开机启动
+### 开机启动
 
 ```text
 # cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
@@ -65,14 +65,14 @@
 # systemctl enable mysqld
 ```
 
-#### 5、目录权限
+### 目录权限
 
 ```text
 # chown -Rf mysql:mysql /usr/local/mysql
 # chown -Rf mysql:mysql /home/mysql
 ```
 
-#### 6、添加环境变量
+### 添加环境变量
 
 ```text
 # vi /etc/profile
@@ -84,7 +84,7 @@ export PATH=$PATH:/usr/local/mysql/bin:/usr/local/mysql/lib
 # source /etc/profile
 ```
 
-#### 7、配置
+### 配置
 
 ```text
 # vi /etc/my.cnf
@@ -159,13 +159,13 @@ log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
 ```
 
-#### 8、初始化数据库
+### 初始化数据库
 
 ```text
 mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/home/mysql/data
 ```
 
-#### 9、查看数据库服务是否已经启动
+### 查看数据库服务是否已经启动
 
 ```text
 # systemctl start mysqld
@@ -173,7 +173,7 @@ mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/
 # ps -ef | grep mysql
 ```
 
-#### 10、设置数据库root用户密码
+### 设置数据库root用户密码
 
 ```text
 # mysql_secure_installation
@@ -181,15 +181,15 @@ mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/
 
 这里只说明下MySQL5.7.14版本中，用户密码策略分成低级 LOW 、中等 MEDIUM 和超强 STRONG 三种，推荐使用中等 MEDIUM 级别！
 
-#### 11、登录mysql数据库
+### 登录mysql数据库
 
 ```text
 # mysql -u root -p
 ```
 
-### 数据库用户及权限配置
+## 数据库用户及权限配置
 
-#### 1、新建用户，并赋予权限
+### 新建用户，并赋予权限
 
 ```text
 mysql> CREATE USER "yy"@"%" IDENTIFIED BY '123';
