@@ -10,5 +10,5 @@ description: 收集在服务器运维过程中需要的资料文档。
 
 ## Docker 容器资料汇总
 
-* 通过 [Docker 菜鸟教程](https://www.runoob.com/docker/docker-tutorial.html) ，可以对Docker的有一个全面的认识。详细阅读并按照步骤进行操作，达到入门水平。
+* 通过 [Docker 菜鸟教程](https://www.runoob.com/docker/docker-tutorial.html) ，简单了解docker的架构、安装、使用、命令、实例安装。对docker有一个全面的认识。
 
