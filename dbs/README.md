@@ -10,11 +10,9 @@ description: 收集数据库方面的资料文档。
 
 ## elasticsearch 资料汇总
 
-* [elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/master/index.html)
+* 通过 [elasticsearch 官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/master/index.html) 可以对 elasticsearch 的使用有一个全面的了解。
 
 ## mysql 资料汇总
-
-* [在CentOS7上编译安装MySQL 5.7.14步骤详解](https://my.oschina.net/u/1429136/blog/738772)
 
 
 
