@@ -7,4 +7,5 @@
   * [mysql 搭建实战](ops/mysql-install.md)
 * [数据库](dbs/README.md)
   * [elasticsearch 问题记录](dbs/es-solutions-records.md)
-* [计算机程序开发语言](dl/README.md)
+* [计算机程序开发语言](dl.md)
+
