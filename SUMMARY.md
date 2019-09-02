@@ -7,5 +7,5 @@
   * [mysql 搭建实战](ops/mysql-install.md)
 * [数据库](dbs/README.md)
   * [elasticsearch 问题记录](dbs/es-solutions-records.md)
-* [工具](dt/README.md)
+* [工具](dt.md)
 
