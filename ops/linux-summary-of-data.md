@@ -1,6 +1,6 @@
-# linux 资料总汇
+# 资料总汇
 
-## linux 基础资料
+## linux 参考资料
 
 * [Linux 命令大全](https://www.runoob.com/linux/linux-command-manual.html) 可作为命令参考工具书。
 
