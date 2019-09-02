@@ -1,37 +1,39 @@
 # mysql 搭建实战
 
-## 编译安装
+## 基于单机的mysql编译安装
 
-**环境**： Centos7.x、mysql5.7
+> **环境**： Centos7.x、mysql5.7
 
-### 准备
+### 编译安装
+
+#### 1、准备
 
 ```text
-# yum -y install gcc gcc-c++ ncurses ncurses-devel cmake bison bison-devel
+~$ yum -y install gcc gcc-c++ ncurses ncurses-devel cmake bison bison-devel
 
-# cd /usr/local/src
+~$ cd /usr/local/src
 
-# wget http://www.sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
-# tar -xvzf boost_1_59_0.tar.gz
+~$ wget http://www.sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
+~$ tar -xvzf boost_1_59_0.tar.gz
 
-# wget http://101.96.10.47/dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.14.tar.gz
-# tar -zvxf mysql-boost-5.7.14.tar.gz
+~$ wget http://101.96.10.47/dev.mysql.com/get/Downloads/MySQL-5.7/mysql-boost-5.7.14.tar.gz
+~$ tar -zvxf mysql-boost-5.7.14.tar.gz
 
-# mv boost_1_59_0 mysql-5.7.14
-# cd mysql-5.7.14
+~$ mv boost_1_59_0 mysql-5.7.14
+~$ cd mysql-5.7.14
 
-# groupadd -r mysql
-# useradd -r -g mysql mysql
+~$ groupadd -r mysql
+~$ useradd -r -g mysql mysql
 
-# mkdir -p /home/mysql/data
-# mkdir -p /home/mysql/logs
-# mkdir -p /home/mysql/temp
+~$ mkdir -p /home/mysql/data
+~$ mkdir -p /home/mysql/logs
+~$ mkdir -p /home/mysql/temp
 ```
 
-### 进入目录，配置
+#### 2、进入目录，配置
 
 ```text
-# cmake  
+~$ cmake  
 -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 -DMYSQL_DATADIR=/home/mysql/data \
 -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \
@@ -49,45 +51,45 @@
 -DWITH_EMBEDDED_SERVER=1 
 ```
 
-### 编译&安装
+#### 3、编译&安装
 
 ```text
-# make
-# make install
-# make clean
+~$ make
+~$ make install
+~$ make clean
 ```
 
-### 开机启动
+#### 4、开机启动
 
 ```text
-# cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
-# chmod +x /etc/init.d/mysqld 
-# systemctl enable mysqld
+~$ cp /usr/local/mysql/support-files/mysql.server /etc/init.d/mysqld
+~$ chmod +x /etc/init.d/mysqld 
+~$ systemctl enable mysqld
 ```
 
-### 目录权限
+#### 5、目录权限
 
 ```text
-# chown -Rf mysql:mysql /usr/local/mysql
-# chown -Rf mysql:mysql /home/mysql
+~$ chown -Rf mysql:mysql /usr/local/mysql
+~$ chown -Rf mysql:mysql /home/mysql
 ```
 
-### 添加环境变量
+#### 6、添加环境变量
 
 ```text
-# vi /etc/profile
+~$ vi /etc/profile
 # 末尾添加以下内容
-# mysql env
+~$ mysql env
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/mysql/lib
 
 # 生效
-# source /etc/profile
+~$ source /etc/profile
 ```
 
-### 配置
+#### 7、配置
 
 ```text
-# vi /etc/my.cnf
+~$ vi /etc/my.cnf
 
 [mysqld]
 character-set-server = utf8mb4
@@ -159,37 +161,37 @@ log-error=/var/log/mysqld.log
 pid-file=/var/run/mysqld/mysqld.pid
 ```
 
-### 初始化数据库
+#### 8、初始化数据库
 
 ```text
-mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/home/mysql/data
+~$ mysqld --initialize-insecure --user=mysql --basedir=/usr/local/mysql --datadir=/home/mysql/data
 ```
 
-### 查看数据库服务是否已经启动
+#### 9、查看数据库服务是否已经启动
 
 ```text
-# systemctl start mysqld
-# systemctl status mysqld
-# ps -ef | grep mysql
+~$ systemctl start mysqld
+~$ systemctl status mysqld
+~$ ps -ef | grep mysql
 ```
 
-### 设置数据库root用户密码
+#### 10、设置数据库root用户密码
 
 ```text
-# mysql_secure_installation
+~$ mysql_secure_installation
 ```
 
 这里只说明下MySQL5.7.14版本中，用户密码策略分成低级 LOW 、中等 MEDIUM 和超强 STRONG 三种，推荐使用中等 MEDIUM 级别！
 
-### 登录mysql数据库
+#### 11、登录mysql数据库
 
 ```text
-# mysql -u root -p
+~$ mysql -u root -p
 ```
 
-## 数据库用户及权限配置
+### 用户及权限配置
 
-### 新建用户，并赋予权限
+#### 1、新建用户，并赋予权限
 
 ```text
 mysql> CREATE USER "yy"@"%" IDENTIFIED BY '123';
