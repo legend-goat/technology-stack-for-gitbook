@@ -11,4 +11,7 @@ description: 收集在服务器运维过程中需要的资料文档。包括基�
 ## Docker 资料汇总
 
 * 通过 [Docker 菜鸟教程](https://www.runoob.com/docker/docker-tutorial.html) ，简单了解docker的架构、安装、使用、命令、实例安装。对docker有一个全面的认识。
+* [k8s中文手册](https://www.kubernetes.org.cn) 帮助我们高效部署、管理容器。
+
+
 
