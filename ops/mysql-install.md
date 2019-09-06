@@ -199,3 +199,7 @@ mysql> grant all on `testdb`.* to "yy"@"%" Identified by "123";
 mysql> flush privileges;
 ```
 
+### 主从配置
+
+
+
