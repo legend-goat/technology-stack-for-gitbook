@@ -217,11 +217,11 @@ binlog-do-db=repl  #需要同步的数据库,如果没有本行表示同步所�
 binlog-ignore-db=mysql  #被忽略的数据
 
 # 在master机上为slave添加一同步帐号 (开放一个账号用于同步)
-mysql> grant replication slave on *.* to 'repl'@'%' identified by '123456';
+mysql> grant replication slave on *.* to 'repl'@'%' identified by 'E>_iG6u+<%dh';
 mysql> flush  privileges;
 
 # 重启master的mysqld服务
-~$ service mysqld restart
+~$ systemctl restart mysqld
 
 ```
 
@@ -245,7 +245,7 @@ log-slave-updates=1
 replicate-do-db=repl #要同步的数据库,不写本行表示同步所有数据库
 
 # 重启master的mysqld服务
-~$ service mysqld restart
+~$ systemctl restart mysqld
 
 # 在slave上验证对master连接
 ~$ mysql -h192.168.10.86 -urepl -p123456
