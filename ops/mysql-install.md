@@ -199,6 +199,23 @@ mysql> grant all on `testdb`.* to "yy"@"%" Identified by "123";
 mysql> flush privileges;
 ```
 
+> 如果远程无法连接，查看防火墙是否关闭。
+
+```text
+# 查看防火墙状态
+~$ firewall-cmd --state
+
+停止firewall
+~$ systemctl stop firewalld.service
+
+# 禁止firewall开机启动
+~$ systemctl disable firewalld.service
+
+# 关闭selinux 
+# 进入到/etc/selinux/config文件，将SELINUX=enforcing改为SELINUX=disabled
+~$ vi /etc/selinux/config
+```
+
 ### 主从配置
 
 #### master配置
