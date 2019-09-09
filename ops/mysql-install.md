@@ -33,7 +33,7 @@
 #### 2、进入目录，配置
 
 ```text
-~$ cmake  
+~$ cmake \
 -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 -DMYSQL_DATADIR=/home/mysql/data \
 -DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \
