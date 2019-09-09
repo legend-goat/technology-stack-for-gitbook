@@ -77,9 +77,9 @@
 #### 6、添加环境变量
 
 ```text
-~$ vi /etc/profile
 # 末尾添加以下内容
-~$ mysql env
+~$ vi /etc/profile
+# mysql env
 export PATH=$PATH:/usr/local/mysql/bin:/usr/local/mysql/lib
 
 # 生效
