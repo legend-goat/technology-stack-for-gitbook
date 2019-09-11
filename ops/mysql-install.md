@@ -240,7 +240,10 @@ mysql> flush  privileges;
 # 重启master的mysqld服务
 ~$ systemctl restart mysqld
 
-# 查看主库的状态，为从库配置做准备
+# 使用show master status，查看master的状态，记录下File和Position，
+# 如下列结果中的File:mysql-bin.000004;Position:2205，
+# 需要注意的是，这两个字段数据不是固定的，所以配置每个slave节点时，都应该查看一次，
+# 再根据实际情况配置
 mysql> show master status;
 
 ```
@@ -248,14 +251,7 @@ mysql> show master status;
 #### slave配置
 
 ```text
-# 使用show master status，查看master的状态，记录下File和Position，
-# 如下列结果中的File:mysql-bin.000004;Position:2205，
-# 需要注意的是，这两个字段数据不是固定的，所以配置每个slave节点时，都应该查看一次，
-# 再根据实际情况配置
-~$ mysql –u root –p
-mysql> show master status;
-
-# 修改slave机器中mysql配置文件/etc/my.cnf
+# 修改slave机器中mysql配置文件[mysqld]配置段
 ~$ vi /etc/my.cnf
 server-id=2 #
 log-bin= mysql-bin
@@ -273,22 +269,24 @@ replicate-do-db=repl #要同步的数据库,不写本行表示同步所有数据
 # 设置slave复制 ，这一步中的参数，请根据实际情况填写，
 # 其中，MASTER_LOG_FILE与MASTER_LOG_POS的值，即为步骤2中记录的值。
 # 或者也可以使用默认配置MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=0,
-
 mysql> CHANGE MASTER TO \
 MASTER_HOST='192.168.1.102', \
 MASTER_USER='repl', \
 MASTER_PASSWORD='E>_iG6u+<%dh', \
 MASTER_PORT=3306, \
 MASTER_LOG_FILE='mysql-bin.000007', \
-MASTER_LOG_POS=0, \
+MASTER_LOG_POS=154, \
 MASTER_CONNECT_RETRY=10;
 
+# 创建同步数据库
+mysql> create database repl;
+
 # 启动slave
-~$ start slave
+mysql> start slave;
 
 # 运行show slave status\G查看输出结果，主要查看的是如下图所示，
 # Slave_IO_Running和Slave_SQL_Running两列是否都为YES
-~$ show slave status
+~$ show slave status\G;
 ```
 
 
