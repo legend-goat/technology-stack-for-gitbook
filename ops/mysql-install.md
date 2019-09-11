@@ -240,6 +240,9 @@ mysql> flush  privileges;
 # 重启master的mysqld服务
 ~$ systemctl restart mysqld
 
+# 查看主库的状态，为从库配置做准备
+mysql> show master status;
+
 ```
 
 #### slave配置
@@ -265,19 +268,19 @@ replicate-do-db=repl #要同步的数据库,不写本行表示同步所有数据
 ~$ systemctl restart mysqld
 
 # 在slave上验证对master连接
-~$ mysql -h192.168.10.86 -urepl -p123456
+~$ mysql -h192.168.1.102 -urepl -p
 
 # 设置slave复制 ，这一步中的参数，请根据实际情况填写，
 # 其中，MASTER_LOG_FILE与MASTER_LOG_POS的值，即为步骤2中记录的值。
 # 或者也可以使用默认配置MASTER_LOG_FILE='mysql-bin.000001', MASTER_LOG_POS=0,
 
-CHANGE MASTER TO
-MASTER_HOST='192.168.10.86',
-MASTER_USER='repl',
-MASTER_PASSWORD='123456',
-MASTER_PORT=3306,
-MASTER_LOG_FILE='mysql-bin.000001',
-MASTER_LOG_POS=0,
+mysql> CHANGE MASTER TO \
+MASTER_HOST='192.168.1.102', \
+MASTER_USER='repl', \
+MASTER_PASSWORD='E>_iG6u+<%dh', \
+MASTER_PORT=3306, \
+MASTER_LOG_FILE='mysql-bin.000007', \
+MASTER_LOG_POS=0, \
 MASTER_CONNECT_RETRY=10;
 
 # 启动slave
