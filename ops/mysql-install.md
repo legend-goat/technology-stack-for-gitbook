@@ -251,7 +251,7 @@ mysql> show master status;
 #### slave配置
 
 ```text
-# 修改slave机器中mysql配置文件[mysqld]配置段
+# 修改slave机器中mysql配置文件/etc/my.cnf
 ~$ vi /etc/my.cnf
 server-id=2 #
 log-bin= mysql-bin
