@@ -2,7 +2,13 @@
 
 ## gitlab 搭建
 
-Centos7 下Gitlab 搭建。详情参考： [https://ken.io/note/centos7-gitlab-install-tutorial](https://ken.io/note/centos7-gitlab-install-tutorial) 
+{% embed url="https://about.gitlab.com/install" %}
+
+{% embed url="https://ken.io/note/centos7-gitlab-install-tutorial" %}
+
+
+
+
 
 
 
