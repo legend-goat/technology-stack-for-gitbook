@@ -48,7 +48,7 @@
 -DENABLE_DTRACE=0 \
 -DDEFAULT_CHARSET=utf8mb4 \
 -DDEFAULT_COLLATION=utf8mb4_general_ci \
--DWITH_EMBEDDED_SERVER=1 
+-DWITH_EMBEDDED_SERVER=1
 ```
 
 #### 3、编译&安装
@@ -245,7 +245,6 @@ mysql> flush  privileges;
 # 需要注意的是，这两个字段数据不是固定的，所以配置每个slave节点时，都应该查看一次，
 # 再根据实际情况配置
 mysql> show master status;
-
 ```
 
 #### slave配置
@@ -288,6 +287,4 @@ mysql> start slave;
 # Slave_IO_Running和Slave_SQL_Running两列是否都为YES
 ~$ show slave status\G;
 ```
-
-
 
