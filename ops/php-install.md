@@ -125,14 +125,13 @@ xdebug.trace_format=1
 
 #### 2、查看工具
 
-调用树跟踪（trace）可以使用php xdebug trace 查看工具（建资料参考）。
+调用树跟踪（trace）可以使用 [xdebug-trace-viewer](https://github.com/kuun/xdebug-trace-viewer) 。
 
-性能分析（profile）可以使用WinCacheGrind。
+性能分析（profile）可以使用 [WinCacheGrind](https://sourceforge.net/projects/wincachegrind/)。
 
 参考资料：
 
 * [PHP 调试技术手册](http://blog.xiayf.cn/assets/uploads/files/PHP-Debug-Manual-public.pdf) 
-* [PHP xdebug trace 查看工具](https://github.com/kuun/xdebug-trace-viewer)
 
 
 
