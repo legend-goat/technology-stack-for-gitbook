@@ -2,9 +2,7 @@
 
 ## 基于单机的PHP及扩展编译安装
 
-> 环境：php5.6、Centos7.x 
->
-> 支持PHP7.x
+> 环境：php5.6、Centos7.x （支持PHP7.x）
 
 ### PHP编译安装
 
@@ -83,9 +81,7 @@ export PATH=$PATH:/usr/local/php/bin:/usr/local/php/sbin
 
 ### PHP扩展安装
 
-> 环境：php5.6、Centos7.x
->
-> 支持PHP7.x
+> 环境：php5.6、Centos7.x （支持PHP7.x）
 
 #### 1、准备
 
@@ -103,4 +99,40 @@ export PATH=$PATH:/usr/local/php/bin:/usr/local/php/sbin
 #### 3、生效
 
 编译之后，/usr/local/php/etc/php.ini 中打开扩展即可
+
+### 调试工具 xdbug 安装
+
+#### 1、xdebug zend扩展安装
+
+扩展安装不再赘述。安装后，开启xdebug及相关配置。
+
+```text
+[XDebug]
+zend_extension = /usr/local/php56/lib/php/20131226/xdebug.so
+xdebug.trace_output_dir = '/mnt/shared/xdebugdir'
+xdebug.profiler_output_dir = '/mnt/shared/xdebugdir'
+xdebug.profiler_output_name = 'cachegrind.out.%t.%R'
+xdebug.trace_output_name = 'xdebug.trace.%t.%R'
+xdebug.auto_trace = on
+xdebug.auto_profile = on
+xdebug.profiler_enable = on
+xdebug.trace_enable_trigger=1
+xdebug.show_mem_delta=1
+xdebug.collect_params=4
+xdebug.collect_return=1
+xdebug.trace_format=1
+```
+
+#### 2、查看工具
+
+调用树跟踪（trace）可以使用php xdebug trace 查看工具（建资料参考）。
+
+性能分析（profile）可以使用WinCacheGrind。
+
+参考资料：
+
+* [PHP 调试技术手册](http://blog.xiayf.cn/assets/uploads/files/PHP-Debug-Manual-public.pdf) 
+* [PHP xdebug trace 查看工具](https://github.com/splitbrain/xdebug-trace-tree)
+
+
 
