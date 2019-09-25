@@ -132,7 +132,7 @@ xdebug.trace_format=1
 参考资料：
 
 * [PHP 调试技术手册](http://blog.xiayf.cn/assets/uploads/files/PHP-Debug-Manual-public.pdf) 
-* [PHP xdebug trace 查看工具](https://github.com/splitbrain/xdebug-trace-tree)
+* [PHP xdebug trace 查看工具](https://github.com/kuun/xdebug-trace-viewer)
 
 
 
