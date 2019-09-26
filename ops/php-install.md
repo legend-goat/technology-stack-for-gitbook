@@ -129,9 +129,10 @@ xdebug.trace_format=1
 
 性能分析（profile）可以使用 [WinCacheGrind](https://sourceforge.net/projects/wincachegrind/)。
 
-参考资料：
+**参考资料：**
 
 * [PHP 调试技术手册](http://blog.xiayf.cn/assets/uploads/files/PHP-Debug-Manual-public.pdf) 
+* [xdebug 官方文档](https://xdebug.org/docs/all_settings)
 
 
 
