@@ -6,5 +6,3 @@ description: Linux中基于命令行的性能监控工具：dstat、top、netsta
 
 ## dstat
 
-
-

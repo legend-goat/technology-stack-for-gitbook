@@ -134,5 +134,3 @@ xdebug.trace_format=1
 * [PHP 调试技术手册](http://blog.xiayf.cn/assets/uploads/files/PHP-Debug-Manual-public.pdf) 
 * [xdebug 官方文档](https://xdebug.org/docs/all_settings)
 
-
-

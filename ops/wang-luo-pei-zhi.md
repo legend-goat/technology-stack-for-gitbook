@@ -71,7 +71,3 @@ NETMASK=255.255.255.0
 ~$ systemctl restart network.service
 ```
 
-
-
-
-

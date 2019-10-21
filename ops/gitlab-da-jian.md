@@ -2,13 +2,7 @@
 
 ## gitlab 搭建
 
-{% embed url="https://about.gitlab.com/install" %}
+{% embed url="https://about.gitlab.com/install" caption="" %}
 
-{% embed url="https://ken.io/note/centos7-gitlab-install-tutorial" %}
-
-
-
-
-
-
+{% embed url="https://ken.io/note/centos7-gitlab-install-tutorial" caption="" %}
 
